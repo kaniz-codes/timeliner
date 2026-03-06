@@ -1,0 +1,47 @@
+{
+  "events": [
+    {
+      "id": 100,
+      "emoji": "🚀",
+      "title": "Today!",
+      "month": "2026-03",
+      "details": "A good day to add a new milestone.",
+      "expanded": false
+    },
+    {
+      "id": 4,
+      "emoji": "𝐍",
+      "title": "Build Notabene for my classmates.",
+      "month": "2026-03",
+      "expanded": false
+    },
+    {
+      "id": 3,
+      "emoji": "😸",
+      "title": "Kikki joined out family.",
+      "month": "2025-09",
+      "details": "He's the most loved member in our family!",
+      "expanded": false
+    },
+    {
+      "id": 3,
+      "emoji": "🐈‍⬛",
+      "title": "Kikki was Born.",
+      "month": "2025-08",
+      "details": "He's the most amazing cat in the world!",
+      "expanded": false
+    },
+    {
+      "id": 2,
+      "emoji": "👶",
+      "title": "Kaniz was born in Dhaka, Bangladesh",
+      "month": "2004-12"
+    },
+    {
+      "id": 1,
+      "emoji": "🌌",
+      "title": "Beginning of the Universe!",
+      "expanded": false
+    }
+  ]
+}
