@@ -1,0 +1,155 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>My Life Timeline</title>
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+  <main class="page" id="pageRoot">
+    <header class="hero">
+      <div class="hero-top">
+        <div>
+          <h1>My life</h1>
+          <p>
+            I have always thought the best way to visualize someone's life is through a timeline.
+            Here is my timeline:
+          </p>
+        </div>
+
+        <!-- Export dropdown trigger -->
+        <div class="export-menu-wrap">
+          <button
+            id="toggleExportBtnTop"
+            class="toggle-btn top-export-btn"
+            type="button"
+            aria-expanded="false"
+            aria-controls="exportDropdown"
+            aria-haspopup="menu"
+          >
+            <span class="toggle-btn-text">Export</span>
+            <span class="toggle-btn-icon" aria-hidden="true">⌄</span>
+          </button>
+
+          <div
+            id="exportDropdown"
+            class="export-dropdown"
+            role="menu"
+            aria-label="Export options"
+            hidden
+          >
+            <button id="exportPngBtn" type="button" role="menuitem">Export PNG</button>
+            <button id="exportJpgBtn" type="button" role="menuitem">Export JPG</button>
+            <button id="exportPdfBtn" type="button" role="menuitem">Export PDF</button>
+            <hr class="export-divider" />
+            <button id="copyEmbedBtn" type="button" role="menuitem">Copy Embed Code</button>
+            <button id="copyEmbedLinkBtn" type="button" role="menuitem">Copy Embed Link</button>
+            <p id="exportMessage" class="export-menu-message" aria-live="polite"></p>
+          </div>
+        </div>
+      </div>
+    </header>
+
+    <!-- Add Event (Toggle) -->
+    <section class="panel" aria-label="Add timeline event">
+      <div class="panel-header">
+        <div>
+          <h2>Add Event</h2>
+          <p class="panel-subtitle">Open only when you want to add a new milestone.</p>
+        </div>
+        <button
+          id="toggleAddBtn"
+          class="toggle-btn"
+          type="button"
+          aria-expanded="false"
+          aria-controls="addEventPanel"
+        >
+          <span class="toggle-btn-text">Show</span>
+          <span class="toggle-btn-icon" aria-hidden="true">⌄</span>
+        </button>
+      </div>
+
+      <div id="addEventPanel" class="panel-body" hidden>
+        <form id="addEventForm" class="add-event-form">
+          <div class="grid">
+            <div class="field">
+              <label for="eventEmoji">Emoji</label>
+              <input id="eventEmoji" name="emoji" type="text" maxlength="2" placeholder="🚀" />
+            </div>
+
+            <div class="field">
+              <label for="eventMonth">Month & Year</label>
+              <input id="eventMonth" name="month" type="month" required />
+            </div>
+
+            <div class="field field-full">
+              <label for="eventTitle">Title</label>
+              <input
+                id="eventTitle"
+                name="title"
+                type="text"
+                required
+                placeholder="Started my first internship"
+              />
+            </div>
+
+            <div class="field field-full">
+              <label for="eventDetails">Details (optional)</label>
+              <textarea
+                id="eventDetails"
+                name="details"
+                rows="3"
+                placeholder="A few lines about this milestone..."
+              ></textarea>
+            </div>
+          </div>
+
+          <div class="form-actions">
+            <button type="submit">Add Event</button>
+            <button type="button" id="clearAllBtn" class="secondary">Clear All Saved</button>
+          </div>
+
+          <p id="formMessage" class="form-message" aria-live="polite"></p>
+        </form>
+      </div>
+    </section>
+
+    <!-- Timeline -->
+    <section class="timeline-wrap" aria-label="Timeline" id="timelineExportTarget">
+      <div class="timeline-line" aria-hidden="true"></div>
+      <div id="timelineList" class="timeline-list"></div>
+      <p id="emptyState" class="empty-state hidden">No events yet. Add your first one above ✨</p>
+    </section>
+  </main>
+
+  <template id="timelineItemTemplate">
+    <article class="timeline-item">
+      <div class="marker" aria-hidden="true">
+        <span class="emoji-dot"></span>
+      </div>
+
+      <button class="event-card" type="button" aria-expanded="false">
+        <div class="event-main">
+          <div class="event-title-row">
+            <span class="event-title-text"></span>
+            <span class="event-date-inline"></span>
+          </div>
+        </div>
+        <span class="chevron" aria-hidden="true">⌄</span>
+      </button>
+
+      <div class="event-details hidden">
+        <div class="event-details-card">
+          <span class="event-details-label">Note</span>
+          <p class="event-details-text"></p>
+        </div>
+      </div>
+    </article>
+  </template>
+
+  <script src="https://cdn.jsdelivr.net/npm/html2canvas@1.4.1/dist/html2canvas.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/jspdf@2.5.1/dist/jspdf.umd.min.js"></script>
+  <script src="script.js"></script>
+</body>
+</html>
